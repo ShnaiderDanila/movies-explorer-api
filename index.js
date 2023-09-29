@@ -7,4 +7,7 @@ const app = express();
 
 mongoose.connect('mongodb://localhost:27017/bitfilmsdb');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.listen(PORT, () => {});
