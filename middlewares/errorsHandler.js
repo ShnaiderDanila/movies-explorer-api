@@ -8,7 +8,7 @@ const serverError = new InternalServerError('На сервере произош�
 const badRequestError = new BadRequestError('Переданы некорректные данные');
 const conflictError = new ConflictError('Пользователь с таким email уже зарегистрирован');
 
-const handleError = (err, req, res, next) => {
+const handleErrors = (err, req, res, next) => {
   const { statusCode = serverError.statusCode, message } = err;
 
   if (err instanceof Error.CastError || err instanceof Error.ValidationError) {
@@ -26,4 +26,4 @@ const handleError = (err, req, res, next) => {
   return next();
 };
 
-module.exports = handleError;
+module.exports = handleErrors;
