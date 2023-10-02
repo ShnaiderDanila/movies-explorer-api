@@ -1,4 +1,7 @@
+const bcrypt = require('bcryptjs');
+
 const User = require('../models/user');
+const { CREATED_STATUS } = require('../utils/constants');
 const NotFoundError = require('../errors/NotFoundError');
 
 const getUserInfo = (req, res, next) => {
@@ -24,7 +27,20 @@ const updateUserInfo = (req, res, next) => {
     .catch(next);
 };
 
+const signup = (req, res, next) => {
+  const { email, password, name } = req.body;
+  bcrypt.hash(password, 10)
+    .then((hash) => {
+      User.create({ email, password: hash, name })
+        .then(() => {
+          res.status(CREATED_STATUS).send({ email, name });
+        });
+    })
+    .catch(next);
+};
+
 module.exports = {
   getUserInfo,
   updateUserInfo,
+  signup,
 };
