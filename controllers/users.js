@@ -39,8 +39,18 @@ const signup = (req, res, next) => {
     .catch(next);
 };
 
+const signin = (req, res, next) => {
+  const { email, password } = req.body;
+  User.findUserByCredentials(email, password)
+    .then((user) => {
+      res.send(user);
+    })
+    .catch(next);
+};
+
 module.exports = {
   getUserInfo,
   updateUserInfo,
   signup,
+  signin,
 };
