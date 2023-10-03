@@ -14,3 +14,5 @@ routes.use(auth);
 routes.use('/movies', moviesRouter);
 routes.use('/users', usersRouter);
 routes.use('*', notFoundRouter);
+
+module.exports = routes;
