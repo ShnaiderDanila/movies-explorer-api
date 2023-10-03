@@ -1,6 +1,6 @@
 const Movie = require('../models/movie');
 const NotFoundError = require('../errors/NotFoundError');
-const CREATED_STATUS = require('../utils/constants');
+const { CREATED_STATUS } = require('../utils/constants');
 
 const getMovies = (req, res, next) => {
   const userId = req.user._id;
