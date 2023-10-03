@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
-const NotFoundError = require('../errors/NotFoundError');
+const UnauthorizedError = require('../errors/UnauthorizedError');
 
 const userSchema = new Schema({
   email: {
@@ -27,23 +27,26 @@ const userSchema = new Schema({
     required: true,
     minlength: 2,
     maxlength: 30,
+    default: 'Александр',
   },
 });
 
 userSchema.statics.findUserByCredentials = function (email, password) {
-  this.findOne({ email })
+  return this.findOne({ email })
     .orFail(() => {
-      throw new NotFoundError('Неправильные почта или пароль');
+      throw new UnauthorizedError('Неправильные почта или пароль');
     })
     .select('+password')
-    .then((user) => {
-      bcrypt.compare(password, user.password)
+    .then((userData) => {
+      const user = bcrypt
+        .compare(password, userData.password)
         .then((matched) => {
           if (!matched) {
-            throw new NotFoundError('Неправильные почта или пароль');
+            throw new UnauthorizedError('Неправильные почта или пароль');
           }
-          return user;
+          return userData;
         });
+      return user;
     });
 };
 
