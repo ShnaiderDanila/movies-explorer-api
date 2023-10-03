@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const { errors } = require('celebrate');
 
 const routes = require('./routes/index');
 const handleErrors = require('./middlewares/errorsHandler');
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
+app.use(errors());
 app.use(handleErrors);
 
 app.listen(PORT, () => {});
