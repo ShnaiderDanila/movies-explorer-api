@@ -63,9 +63,22 @@ const signin = (req, res, next) => {
     .catch(next);
 };
 
+const signout = (req, res, next) => {
+  res
+    .cookie('jwt', 'null', {
+      maxAge: 3000,
+      httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+    })
+    .send({ message: 'Выход успешно выполнен!' })
+    .catch(next);
+};
+
 module.exports = {
   getUserInfo,
   updateUserInfo,
   signup,
   signin,
+  signout,
 };
