@@ -1,5 +1,6 @@
 const Movie = require('../models/movie');
 const NotFoundError = require('../errors/NotFoundError');
+const CREATED_STATUS = require('../utils/constants');
 
 const getMovies = (req, res, next) => {
   const userId = req.user._id;
@@ -32,7 +33,7 @@ const createMovie = (req, res, next) => {
       nameEN: body.nameEN,
     })
     .then((movie) => {
-      res.send(movie);
+      res.status(CREATED_STATUS).send(movie);
     })
     .catch(next);
 };
