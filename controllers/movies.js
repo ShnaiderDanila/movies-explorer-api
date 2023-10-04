@@ -1,5 +1,6 @@
 const Movie = require('../models/movie');
 const NotFoundError = require('../errors/NotFoundError');
+const ForbiddenError = require('../errors/ForbiddenError');
 const { CREATED_STATUS } = require('../utils/constants');
 
 const getMovies = (req, res, next) => {
@@ -39,12 +40,19 @@ const createMovie = (req, res, next) => {
 };
 
 const deleteMovie = (req, res, next) => {
-  Movie.findByIdAndRemove(req.params._id)
+  const currentUserId = req.user._id;
+  Movie.findById(req.params._id)
     .orFail(() => {
       throw new NotFoundError('Фильм с указанным id не найден');
     })
     .then((movie) => {
-      res.send(movie);
+      if (currentUserId !== movie.owner.valueOf()) {
+        throw new ForbiddenError('Недостаточно прав для удаления фильма');
+      }
+      Movie.deleteOne()
+        .then(() => {
+          res.send(movie);
+        });
     })
     .catch(next);
 };
