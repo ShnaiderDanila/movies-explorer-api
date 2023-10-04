@@ -49,7 +49,7 @@ const deleteMovie = (req, res, next) => {
       if (currentUserId !== movie.owner.valueOf()) {
         throw new ForbiddenError('Недостаточно прав для удаления фильма');
       }
-      Movie.deleteOne()
+      movie.deleteOne()
         .then(() => {
           res.send(movie);
         });
