@@ -8,10 +8,13 @@ const allowedCors = [
 
 ];
 
+const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
+
 module.exports = {
   CREATED_STATUS,
   regexURL,
   regexNameRU,
   regexNameEN,
   allowedCors,
+  DEFAULT_ALLOWED_METHODS,
 };
