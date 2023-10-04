@@ -63,7 +63,7 @@ const signin = (req, res, next) => {
     .catch(next);
 };
 
-const signout = (req, res, next) => {
+const signout = (req, res) => {
   res
     .cookie('jwt', 'null', {
       maxAge: 3000,
@@ -71,8 +71,7 @@ const signout = (req, res, next) => {
       secure: true,
       sameSite: 'none',
     })
-    .send({ message: 'Выход успешно выполнен!' })
-    .catch(next);
+    .send({ message: 'Выход успешно выполнен!' });
 };
 
 module.exports = {
