@@ -30,7 +30,7 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.statics.findUserByCredentials = function (email, password) {
+function findUserByCredentials(email, password) {
   return this.findOne({ email })
     .orFail(() => {
       throw new UnauthorizedError('Неправильные почта или пароль');
@@ -47,6 +47,8 @@ userSchema.statics.findUserByCredentials = function (email, password) {
         });
       return user;
     });
-};
+}
+
+userSchema.statics.findUserByCredentials = findUserByCredentials;
 
 module.exports = model('user', userSchema);
