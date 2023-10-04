@@ -7,6 +7,8 @@ const { errors } = require('celebrate');
 
 const { PORT = 3000, NODE_ENV, MONGODB_SERVER } = process.env;
 
+const { MONGODB_SERVER_DEV } = require('./utils/config');
+
 const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/index');
@@ -14,7 +16,7 @@ const handleErrors = require('./middlewares/errorsHandler');
 
 const app = express();
 
-mongoose.connect(NODE_ENV === 'production' ? MONGODB_SERVER : 'mongodb://127.0.0.1:27017/bitfilmsdb');
+mongoose.connect(NODE_ENV === 'production' ? MONGODB_SERVER : MONGODB_SERVER_DEV);
 
 app.use(cookieParser());
 
