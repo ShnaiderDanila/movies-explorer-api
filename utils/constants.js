@@ -5,7 +5,8 @@ const regexNameRU = /^[^a-z]+$/i;
 const regexNameEN = /^[^а-яё]+$/i;
 
 const allowedCors = [
-
+  'http://api.movies-explorer.shndr.nomoredomainsrocks.ru',
+  'https://api.movies-explorer.shndr.nomoredomainsrocks.ru',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
