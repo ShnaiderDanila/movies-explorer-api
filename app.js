@@ -12,6 +12,7 @@ const { MONGODB_SERVER_DEV } = require('./utils/config');
 
 const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const rateLimiter = require('./middlewares/rateLimiter');
 const routes = require('./routes/index');
 const handleErrors = require('./middlewares/errorsHandler');
 
@@ -28,6 +29,7 @@ app.use(cors);
 app.use(helmet());
 
 app.use(requestLogger);
+app.use(rateLimiter);
 app.use(routes);
 
 app.use(errorLogger);
