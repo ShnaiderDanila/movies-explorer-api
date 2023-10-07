@@ -1,27 +1,21 @@
 const { Error } = require('mongoose');
 
-const InternalServerError = require('../errors/InternalServerError');
-const BadRequestError = require('../errors/BadRequestError');
-const ConflictError = require('../errors/ConflictError');
-
-const serverError = new InternalServerError('На сервере произошла ошибка');
-const badRequestError = new BadRequestError('Переданы некорректные данные');
-const conflictError = new ConflictError('Пользователь с таким email уже зарегистрирован');
+const { SERVER_ERROR, CONFLICT_ERROR, BAD_REQUEST_ERROR } = require('../utils/constants');
 
 const handleErrors = (err, req, res, next) => {
-  const { statusCode = serverError.statusCode, message } = err;
+  const { statusCode = SERVER_ERROR.statusCode, message } = err;
 
   if (err instanceof Error.CastError || err instanceof Error.ValidationError) {
-    return res.status(badRequestError.statusCode).send({ message: badRequestError.message });
+    return res.status(BAD_REQUEST_ERROR.statusCode).send({ message: BAD_REQUEST_ERROR.message });
   }
 
   if (err.code === 11000) {
-    return res.status(conflictError.statusCode).send({ message: conflictError.message });
+    return res.status(CONFLICT_ERROR.statusCode).send({ message: CONFLICT_ERROR.message });
   }
 
   res
     .status(statusCode)
-    .send({ message: statusCode === serverError.statusCode ? serverError.message : message });
+    .send({ message: statusCode === SERVER_ERROR.statusCode ? SERVER_ERROR.message : message });
 
   return next();
 };
