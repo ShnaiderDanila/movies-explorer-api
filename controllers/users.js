@@ -38,7 +38,8 @@ const signup = (req, res, next) => {
       User.create({ email, password: hash, name })
         .then(() => {
           res.status(CREATED_STATUS).send({ email, name });
-        });
+        })
+        .catch(next);
     })
     .catch(next);
 };
