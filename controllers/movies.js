@@ -52,7 +52,8 @@ const deleteMovie = (req, res, next) => {
       movie.deleteOne()
         .then(() => {
           res.send(movie);
-        });
+        })
+        .catch(next);
     })
     .catch(next);
 };
