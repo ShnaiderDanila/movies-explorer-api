@@ -9,12 +9,11 @@ const BAD_REQUEST_ERROR = new BadRequestError('Переданы некоррек
 const CREATED_STATUS = 201;
 
 const regexURL = /^https?:\/\/(w{3}\.)?[-a-z0-9._~:?#[\]@!$&'()*+,;=/]+\.[a-z0-9]+\/?[-a-z0-9._~:?#[\]@!$&'()*+,;=/]*#?$/i;
-const regexNameRU = /^[^a-z]+$/i;
-const regexNameEN = /^[^а-яё]+$/i;
 
 const allowedCors = [
   'https://api.movies-explorer.shndr.nomoredomainsrocks.ru',
   'https://movies-explorer.shndr.nomoredomainsrocks.ru',
+  'http://localhost:3001',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
@@ -25,8 +24,6 @@ module.exports = {
   BAD_REQUEST_ERROR,
   CREATED_STATUS,
   regexURL,
-  regexNameRU,
-  regexNameEN,
   allowedCors,
   DEFAULT_ALLOWED_METHODS,
 };
