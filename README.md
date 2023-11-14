@@ -19,7 +19,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 
-## 🚀 Запуск проекта:
+## 🚀 Запуск проекта (Backend):
 
 #### Клонировать репозиторий:
 ```
