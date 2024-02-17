@@ -1,7 +1,7 @@
 # [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&random=false&width=500&lines=Movies-explorer.+Backend)](https://git.io/typing-svg)
 Дипломный проект в рамках учебы в [Яндекс.Практикум](https://practicum.yandex.ru/) на факультете [Веб-разработчик](https://practicum.yandex.ru/web/)
 
-![Movies Explorer](https://github.com/Shnd3r/movies-explorer-api/assets/116545792/1c615142-ed07-4a49-b3b1-2b58ea027c89)
+![movies-explorer](https://github.com/ShnaiderDanila/movies-explorer-api/assets/116545792/6524a38c-c682-44b8-9be2-a1af4d0c957e)
 
 ## Описание проекта
 **Movies Explorer** - приложение для поиска и просмотра фильмов международного фестиваля документального кино о новой культуре **Beat Film Festival**. Отзывчиво-адаптивное приложение (SPA), написанное на React (frontend) и Express (backend).
