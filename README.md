@@ -12,8 +12,8 @@
 - Backend: https://api.movies-explorer.shndr.nomoredomainsrocks.ru
 
 **Ссылки на репозитории:**
-- Frontend: https://github.com/Shnd3r/movies-explorer-frontend
-- Backend: https://github.com/Shnd3r/movies-explorer-api
+- Frontend: https://github.com/ShnaiderDanila/movies-explorer-frontend
+- Backend: https://github.com/ShnaiderDanila/movies-explorer-api
 
 ## Функциональность (Backend): 
 * Роуты для пользователей:
