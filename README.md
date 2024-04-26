@@ -4,11 +4,12 @@
 ![movies-explorer](https://github.com/ShnaiderDanila/movies-explorer-api/assets/116545792/6524a38c-c682-44b8-9be2-a1af4d0c957e)
 
 ## Описание проекта
-**Movies Explorer** - интернет-магазин мужской одежды. Отзывчиво-адаптивное Full-stack приложение.
+**Movies Explorer** - приложение для поиска и просмотра фильмов международного фестиваля документального кино о новой культуре **Beat Film Festival**. Отзывчиво-адаптивное приложение (SPA), написанное на React (frontend) и Express (backend).
 
 **Ссылки на проект:**
-- Frontend: https://male-fashion.ru/
-- Backend: https://male-fashion.ru/api
+- IP: 158.160.120.12
+- Frontend: https://movies-explorer.shndr.nomoredomainsrocks.ru
+- Backend: https://api.movies-explorer.shndr.nomoredomainsrocks.ru
 
 **Ссылки на репозитории:**
 - Frontend: https://github.com/ShnaiderDanila/movies-explorer-frontend
